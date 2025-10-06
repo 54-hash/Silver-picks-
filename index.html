@@ -1,155 +1,143 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clothing Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chidubem's Picks</title>
   <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: Arial, sans-serif; background-color:#121212; color:#f5f5f5;}header {background:#1e1e1e; padding:1rem; text-align:center; position:sticky; top:0; z-index:1000;}
-header h1 {color:#fff; font-size:1.5rem;}
-
-nav {display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;}
-nav button {background:#2a2a2a; color:#f5f5f5; border:none; padding:0.5rem 1rem; cursor:pointer; border-radius:6px; transition:0.2s;}
-nav button:hover {background:#444; transform:scale(1.05);}
-
-.container {padding:2rem;}
-
-.products {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem;}
-.product {background:#1c1c1c; padding:1rem; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.5); text-align:center; transition:0.3s; cursor:pointer;}
-.product:hover {transform:translateY(-5px) scale(1.02);}
-.product img {width:100%; height:220px; object-fit:cover; border-radius:8px;}
-.product h3 {margin:0.75rem 0 0.25rem; font-size:1rem;}
-.product p {font-size:0.9rem; color:#bbb;}
-.product .price {margin:0.5rem 0; font-weight:bold; color:#fff;}
-.product button {background:#6200ea; border:none; color:#fff; padding:0.5rem 1rem; border-radius:6px; cursor:pointer; transition:0.2s;}
-.product button:hover {background:#7e3ff2; transform:scale(1.05);}
-
-#cart {position:fixed; right:0; top:0; width:320px; max-width:90%; height:100%; background:#181818; box-shadow:-2px 0 6px rgba(0,0,0,0.6); padding:1rem; overflow-y:auto; transform:translateX(100%); transition:transform 0.3s ease; z-index:2000;}
-#cart.active {transform:translateX(0);}
-#cart h2 {margin-bottom:1rem; font-size:1.2rem;}
-#cart ul {list-style:none;}
-#cart ul li {margin-bottom:0.75rem; font-size:0.9rem; display:flex; justify-content:space-between; align-items:center;}
-#cart ul li span {color:#ccc; cursor:pointer;}
-#cart button.checkout {background:#03dac6; color:#000; width:100%; margin-top:1rem; padding:0.75rem; border:none; border-radius:6px; cursor:pointer; font-weight:bold; transition:0.2s;}
-#cart button.checkout:hover {background:#26ffe6;}
-
-.cart-toggle {position:fixed; right:1rem; bottom:1rem; background:#03dac6; border:none; padding:0.75rem 1rem; border-radius:50px; cursor:pointer; font-weight:bold; box-shadow:0 2px 6px rgba(0,0,0,0.5); transition:0.2s; z-index:2000;}
-.cart-toggle:hover {transform:scale(1.1);}
-
-.modal {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:none; align-items:center; justify-content:center; z-index:3000; padding:1rem;}
-.modal-content {background:#1c1c1c; padding:1.5rem; border-radius:10px; max-width:500px; width:100%; animation:fadeIn 0.3s ease;}
-.modal-content img {width:100%; border-radius:8px; margin-bottom:1rem;}
-.modal-content h3 {margin-bottom:0.5rem; font-size:1.2rem;}
-.modal-content p {color:#bbb; margin-bottom:1rem;}
-.close-modal {background:#333; border:none; color:#fff; padding:0.5rem 1rem; cursor:pointer; border-radius:6px; transition:0.2s;}
-.close-modal:hover {background:#555;}
-
-@keyframes fadeIn {from{opacity:0; transform:scale(0.9);} to{opacity:1; transform:scale(1);}}
-
-@media(max-width:600px){
-  header h1 {font-size:1.2rem;}
-  .container {padding:1rem;}
-  .product img {height:180px;}
-  .cart-toggle {padding:0.5rem 0.75rem; font-size:0.9rem;}
-}
-
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --card-bg: #f5f5f5;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --card-bg: #1e1e1e;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: gray;
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: var(--card-bg);
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product-card h3 {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+    .product-card a {
+      display: inline-block;
+      background: #ff9900;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .product-card a:hover {
+      background: #e08a00;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: gray;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+  <button class="toggle-btn" id="theme-toggle">🌙 Dark Mode</button>
   <header>
-    <h1>Dark Clothing Store</h1>
-    <nav>
-      <button onclick="filterProducts('all')">All</button>
-      <button onclick="filterProducts('men')">Men</button>
-      <button onclick="filterProducts('women')">Women</button>
-      <button onclick="filterProducts('accessories')">Accessories</button>
-    </nav>
-  </header>  <div class="container">
-    <div class="products" id="product-list"></div>
-  </div>  <div id="cart">
-    <h2>Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <button class="checkout">Checkout</button>
-  </div><button class="cart-toggle" onclick="toggleCart()">Cart</button>
+    <h1>Chidubem's Picks</h1>
+    <p>Handpicked gadgets and lifestyle products you'll love ✨</p>
+  </header>
 
-  <div class="modal" id="product-modal">
-    <div class="modal-content">
-      <img id="modal-img" src="" alt="" />
-      <h3 id="modal-title"></h3>
-      <p id="modal-desc"></p>
-      <p id="modal-price" class="price"></p>
-      <button onclick="addToCart(modalProduct)">Add to Cart</button>
-      <button class="close-modal" onclick="closeModal()">Close</button>
+  <section class="products">
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/61DJrGbdwDL._AC_SL1500_.jpg" alt="Wireless Earbuds">
+      <h3>TOZO T6 True Wireless Earbuds</h3>
+      <a href="https://www.amazon.com/dp/B07RGZ5NKS" target="_blank">View on Amazon</a>
     </div>
-  </div>  <script>
-    const products = [
-      {id:1, title:"Black Hoodie", price:35, desc:"Cozy black hoodie.", category:"men", image:"https://picsum.photos/id/1011/400/400"},
-      {id:2, title:"Classic Jeans", price:50, desc:"Blue denim jeans.", category:"men", image:"https://picsum.photos/id/1020/400/400"},
-      {id:3, title:"Leather Jacket", price:120, desc:"Stylish leather jacket.", category:"women", image:"https://picsum.photos/id/1035/400/400"},
-      {id:4, title:"Sneakers", price:70, desc:"Comfortable sneakers.", category:"accessories", image:"https://picsum.photos/id/1041/400/400"}
-    ];
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/71f5Eu5lJSL._AC_SL1500_.jpg" alt="Smart Watch">
+      <h3>Apple Watch Series 8 [GPS 41mm]</h3>
+      <a href="https://www.amazon.com/dp/B0BDJH9ZK6" target="_blank">View on Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/71NfBbbwFGL._AC_SL1500_.jpg" alt="Mechanical Keyboard">
+      <h3>Redragon K552 Mechanical Gaming Keyboard</h3>
+      <a href="https://www.amazon.com/dp/B016MAK38U" target="_blank">View on Amazon</a>
+    </div>
+  </section>
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let modalProduct = null;
+  <footer>
+    © 2025 Chidubem's Picks — Affiliate links may earn a commission.
+  </footer>
 
-    function displayProducts(list) {
-      const container = document.getElementById('product-list');
-      container.innerHTML = '';
-      list.forEach(p => {
-        const div = document.createElement('div');
-        div.className = 'product';
-        div.innerHTML = `
-          <img src="${p.image}" alt="${p.title}" onclick="openModal(${p.id})" />
-          <h3>${p.title}</h3>
-          <p>${p.desc}</p>
-          <p class="price">$${p.price}</p>
-          <button onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    function filterProducts(cat) {
-      if(cat === 'all') displayProducts(products);
-      else displayProducts(products.filter(p => p.category === cat));
-    }
-
-    function addToCart(product) {
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCart();
-      alert(product.title + " added to cart!");
-    }
-
-    function updateCart() {
-      const cartList = document.getElementById('cart-items');
-      cartList.innerHTML = '';
-      cart.forEach((item, i) => {
-        const li = document.createElement('li');
-        li.innerHTML = `${item.title} - $${item.price} <span onclick="removeFromCart(${i})">❌</span>`;
-        cartList.appendChild(li);
-      });
-    }
-
-    function removeFromCart(i) {
-      cart.splice(i,1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCart();
-    }
-
-    function toggleCart() {document.getElementById('cart').classList.toggle('active');}
-
-    function openModal(id) {
-      modalProduct = products.find(p=>p.id===id);
-      document.getElementById('modal-img').src = modalProduct.image;
-      document.getElementById('modal-title').innerText = modalProduct.title;
-      document.getElementById('modal-desc').innerText = modalProduct.desc;
-      document.getElementById('modal-price').innerText = "$"+modalProduct.price;
-      document.getElementById('product-modal').style.display='flex';
-    }
-    function closeModal() {document.getElementById('product-modal').style.display='none';}
-
-    displayProducts(products);
-    updateCart();
-  </script></body>
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.body.removeAttribute('data-theme');
+        toggleBtn.textContent = '🌙 Dark Mode';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        toggleBtn.textContent = '☀️ Light Mode';
+      }
+    });
+  </script>
+</body>
 </html>
