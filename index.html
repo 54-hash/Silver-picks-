@@ -3,23 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aurex Capital | Smart Investing</title>
+  <meta name="description" content="Aurex Capital: Secure, diversified investment solutions for long-term growth. Invest in stocks, ETFs, crypto, and more with confidence." />
+  <meta name="keywords" content="investment, stocks, ETFs, crypto, forex, wealth management, Aurex Capital" />
+  <title>Aurex Capital | Smart Investing for Long-Term Growth</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon (Placeholder) -->
+  <link rel="icon" href="https://via.placeholder.com/32x32?text=AC" type="image/x-icon">
 </head>
 <body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader"></div>
+  </div>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
-      <div class="logo">Aurex Capital</div>
+      <div class="logo">
+        <img src="https://via.placeholder.com/40x40?text=AC" alt="Aurex Capital Logo" class="logo-icon">
+        Aurex Capital
+      </div>
 
       <nav class="nav">
         <ul class="nav-links">
@@ -27,14 +40,18 @@
           <li><a href="#about">About</a></li>
           <li><a href="#products">Investments</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#security">Security</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <a href="#" class="btn btn-primary">Get Started</a>
+      <div class="header-actions">
+        <a href="#" class="btn btn-outline" id="login-btn">Log In</a>
+        <a href="#" class="btn btn-primary" id="get-started-btn">Get Started</a>
+      </div>
 
-      <div class="menu-toggle" id="menu-toggle">
+      <div class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
         <i class="bx bx-menu"></i>
       </div>
     </div>
@@ -42,22 +59,27 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <!-- Optional: Uncomment for video background -->
+    <!-- <video autoplay muted loop class="hero-video">
+      <source src="path/to/your/video.mp4" type="video/mp4">
+    </video> -->
     <div class="container hero-grid">
       <div class="hero-text">
-        <h1>Smart Investing.<br>Built for Long-Term Growth.</h1>
+        <h1>Smart Investing.<br><span>Built for Long-Term Growth.</span></h1>
         <p>
-          Aurex Capital provides secure, diversified investment solutions
-          designed to help individuals and institutions grow wealth with confidence.
+          Aurex Capital empowers individuals and institutions with secure, diversified investment solutions. Leverage data-driven strategies to build wealth confidently in stocks, ETFs, crypto, and more.
         </p>
+        <p class="disclaimer">Investing involves risk. Past performance does not guarantee future results. Consult a financial advisor.</p>
 
         <div class="hero-actions">
-          <a href="#" class="btn btn-primary">Start Investing</a>
+          <a href="#" class="btn btn-primary" id="start-investing-btn">Start Investing</a>
           <a href="#about" class="btn btn-outline">Learn More</a>
         </div>
       </div>
 
       <div class="hero-visual">
-        <img src="https://images.unsplash.com/photo-1642790551116-18e150f6c2e7" alt="Investment illustration">
+        <img src="https://images.unsplash.com/photo-1642790551116-18e150f6c2e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Investment dashboard illustration">
       </div>
     </div>
   </section>
@@ -66,172 +88,157 @@
   <section class="stats">
     <div class="container stats-grid">
       <div class="stat">
+        <i class="bx bx-trending-up"></i>
         <h3>$2.4B+</h3>
-        <p>Assets Managed</p>
+        <p>Assets Under Management</p>
       </div>
       <div class="stat">
+        <i class="bx bx-group"></i>
         <h3>120K+</h3>
         <p>Active Investors</p>
       </div>
       <div class="stat">
+        <i class="bx bx-globe"></i>
         <h3>40+</h3>
         <p>Countries Supported</p>
       </div>
       <div class="stat">
+        <i class="bx bx-award"></i>
         <h3>10+ Years</h3>
         <p>Industry Experience</p>
       </div>
     </div>
   </section>
-  <div class="dashboard">
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h2 class="logo">SilverPicks</h2>
-
-    <ul>
-      <li class="active">Dashboard</li>
-      <li>Portfolio</li>
-      <li>Transactions</li>
-      <li>Invest</li>
-      <li>Withdraw</li>
-      <li>Settings</li>
-      <li class="logout">Logout</li>
-    </ul>
-  </aside>
-
-  <!-- MAIN AREA -->
-  <main class="main">
-
-    <!-- TOP BAR -->
-    <div class="topbar">
-      <h3>Welcome back, Chidubem 👋</h3>
-      <div class="top-actions">
-        <span class="notification">🔔</span>
-        <div class="profile">👤</div>
-      </div>
-    </div>
-
-    <!-- STATS -->
-    <div class="cards">
-      <div class="card">
-        <p>Account Balance</p>
-        <h2>$12,450</h2>
-      </div>
-      <div class="card">
-        <p>Total Profit</p>
-        <h2 class="green">+$2,340</h2>
-      </div>
-      <div class="card">
-        <p>Active Investments</p>
-        <h2>5</h2>
-      </div>
-      <div class="card">
-        <p>ROI</p>
-        <h2>18%</h2>
-      </div>
-    </div>
-
-    <!-- CHART + TRANSACTIONS -->
-    <div class="dashboard-grid">
-      <div class="chart">
-        <p>Investment Growth</p>
-        <div class="chart-placeholder">📈 Chart Here</div>
-      </div>
-
-      <div class="transactions">
-        <p>Recent Transactions</p>
-        <ul>
-          <li>Deposit — $500 <span>Completed</span></li>
-          <li>Investment — $1,000 <span>Active</span></li>
-          <li>Withdrawal — $300 <span>Pending</span></li>
-        </ul>
-      </div>
-    </div>
-
-  </main>
-               </div>
 
   <!-- ABOUT -->
   <section class="section" id="about">
     <div class="container split">
-      <div>
+      <div class="about-text">
         <h2>About Aurex Capital</h2>
         <p>
-          Aurex Capital is a global investment platform built to provide
-          transparent, data-driven, and secure investment opportunities.
+          Founded in 2014, Aurex Capital is a leading global investment platform committed to transparency, innovation, and client success. We provide institutional-grade tools for diversified portfolios, ensuring long-term wealth growth.
         </p>
         <p>
-          Our mission is to empower investors with institutional-grade tools,
-          diversified asset exposure, and long-term wealth strategies.
+          Our team of experts uses advanced analytics and AI-driven insights to navigate markets, offering access to equities, crypto, forex, and managed funds—all with top-tier security.
         </p>
+        <div class="trust-badges">
+          <img src="https://via.placeholder.com/100x50?text=SEC+Compliant" alt="SEC Compliant">
+          <img src="https://via.placeholder.com/100x50?text=FCA+Regulated" alt="FCA Regulated">
+        </div>
       </div>
+      <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team collaboration">
+    </div>
+  </section>
 
-      <img src="https://images.unsplash.com/photo-1559526324-593bc073d938" alt="Team discussion">
+  <!-- WHY CHOOSE US -->
+  <section class="section alt" id="why-choose">
+    <div class="container">
+      <h2 class="center">Why Choose Aurex Capital?</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <i class="bx bx-shield-check"></i>
+          <h3>Regulatory Compliance</h3>
+          <p>Fully compliant with global standards, including SEC and FCA regulations.</p>
+        </div>
+        <div class="feature">
+          <i class="bx bx-low-vision"></i>
+          <h3>Transparent Fees</h3>
+          <p>No hidden costs—clear pricing with competitive rates starting at 0.25%.</p>
+        </div>
+        <div class="feature">
+          <i class="bx bx-brain"></i>
+          <h3>AI-Powered Insights</h3>
+          <p>Leverage machine learning for personalized investment recommendations.</p>
+        </div>
+        <div class="feature">
+          <i class="bx bx-support"></i>
+          <h3>24/7 Support</h3>
+          <p>Dedicated customer service available around the clock.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- INVESTMENT PRODUCTS -->
-  <section class="section alt" id="products">
+  <section class="section" id="products">
     <div class="container">
-      <h2 class="center">Investment Products</h2>
+      <h2 class="center">Our Investment Products</h2>
+      <p class="center section-subtitle">Diversify your portfolio with our range of secure, high-yield options.</p>
 
-      <div class="card-grid">
-        <div class="card glass">
+      <div class="products-grid">
+        <div class="product-card">
           <i class="bx bx-line-chart"></i>
           <h3>Stocks & ETFs</h3>
-          <p>Diversified exposure to global equity markets.</p>
+          <p>Gain exposure to global equities with low-cost index funds and individual stocks.</p>
+          <div class="chart-placeholder">Sample Chart: +12% YTD</div>
         </div>
-
-        <div class="card glass">
+        <div class="product-card">
           <i class="bx bx-bitcoin"></i>
           <h3>Crypto Assets</h3>
-          <p>Secure access to major digital assets.</p>
+          <p>Invest in Bitcoin, Ethereum, and altcoins with secure wallets and staking options.</p>
+          <div class="chart-placeholder">Sample Chart: +25% YTD</div>
         </div>
-
-        <div class="card glass">
+        <div class="product-card">
           <i class="bx bx-transfer-alt"></i>
           <h3>Forex Markets</h3>
-          <p>Trade major currency pairs with precision.</p>
+          <p>Trade major currency pairs with real-time data and advanced tools.</p>
+          <div class="chart-placeholder">Sample Chart: +8% YTD</div>
         </div>
-
-        <div class="card glass">
+        <div class="product-card">
           <i class="bx bx-briefcase"></i>
           <h3>Managed Portfolios</h3>
-          <p>Professionally balanced long-term portfolios.</p>
+          <p>Let experts handle your investments with balanced, risk-adjusted strategies.</p>
+          <div class="chart-placeholder">Sample Chart: +15% YTD</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="section" id="how-it-works">
+  <section class="section alt" id="how-it-works">
     <div class="container">
       <h2 class="center">How It Works</h2>
-
       <div class="steps-grid">
         <div class="step">
           <span>01</span>
           <h4>Create an Account</h4>
-          <p>Register securely in minutes.</p>
+          <p>Sign up securely in under 5 minutes with KYC verification.</p>
         </div>
-
         <div class="step">
           <span>02</span>
-          <h4>Fund Your Wallet</h4>
-          <p>Deposit using supported currencies.</p>
+          <h4>Fund Your Account</h4>
+          <p>Deposit via bank transfer, card, or crypto—minimum $100.</p>
         </div>
-
         <div class="step">
           <span>03</span>
           <h4>Choose Investments</h4>
-          <p>Select assets that match your goals.</p>
+          <p>Select from our curated options or build a custom portfolio.</p>
         </div>
-
         <div class="step">
           <span>04</span>
-          <h4>Track Performance</h4>
-          <p>Monitor growth with real-time insights.</p>
+          <h4>Monitor & Grow</h4>
+          <p>Track performance with real-time dashboards and automated rebalancing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <h2 class="center">What Our Investors Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p>"Aurex Capital helped me grow my retirement fund by 30% in two years. The platform is intuitive and secure."</p>
+          <cite>- Sarah J., Verified Investor</cite>
+        </div>
+        <div class="testimonial">
+          <p>"Excellent customer support and transparent fees. Highly recommend for crypto beginners."</p>
+          <cite>- Michael T., Verified Investor</cite>
+        </div>
+        <div class="testimonial">
+          <p>"Their managed portfolios are a game-changer. I've never felt more confident in my investments."</p>
+          <cite>- Emily R., Verified Investor</cite>
         </div>
       </div>
     </div>
@@ -240,20 +247,17 @@
   <!-- SECURITY -->
   <section class="section alt" id="security">
     <div class="container split">
-      <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a" alt="Security illustration">
-
+      <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Security illustration">
       <div>
         <h2>Security & Compliance</h2>
         <p>
-          We prioritize the protection of investor assets and data through
-          industry-leading security practices.
+          Your security is our priority. We use bank-level encryption, multi-factor authentication, and cold storage for assets.
         </p>
-
         <ul class="list">
-          <li>Advanced encryption & secure infrastructure</li>
-          <li>Multi-layer risk management</li>
-          <li>Data privacy and compliance standards</li>
-          <li>Continuous monitoring & audits</li>
+          <li>256-bit SSL encryption and secure APIs</li>
+          <li>Regular third-party audits and penetration testing</li>
+          <li>GDPR-compliant data protection</li>
+          <li>Insurance coverage up to $100M per investor</li>
         </ul>
       </div>
     </div>
@@ -262,9 +266,9 @@
   <!-- CTA -->
   <section class="cta">
     <div class="container center">
-      <h2>Start Investing With Confidence</h2>
-      <p>Join thousands of investors building long-term wealth.</p>
-      <a href="#" class="btn btn-primary">Create an Account</a>
+      <h2>Ready to Start Investing?</h2>
+      <p>Join over 120,000 investors building wealth with Aurex Capital.</p>
+      <a href="#" class="btn btn-primary" id="cta-btn">Open an Account</a>
     </div>
   </section>
 
@@ -272,11 +276,10 @@
   <section class="section" id="contact">
     <div class="container">
       <h2 class="center">Contact Us</h2>
-
       <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
+        <input type="text" placeholder="Your Name" required aria-label="Name">
+        <input type="email" placeholder="Your Email" required aria-label="Email">
+        <textarea placeholder="Your Message" required aria-label="Message"></textarea>
         <button class="btn btn-primary" type="submit">Send Message</button>
       </form>
     </div>
@@ -287,28 +290,54 @@
     <div class="container footer-grid">
       <div>
         <h3>Aurex Capital</h3>
-        <p>Smart investing for a global future.</p>
+        <p>Empowering smart investments for a prosperous future.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+        </div>
       </div>
-
       <div>
         <h4>Company</h4>
-        <a href="#">About</a>
+        <a href="#about">About</a>
         <a href="#">Careers</a>
+        <a href="#">Press</a>
         <a href="#">Legal</a>
       </div>
-
       <div>
         <h4>Support</h4>
         <a href="#">Help Center</a>
+        <a href="#">API Docs</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
+      <div>
+        <h4>Stay Updated</h4>
+        <input type="email" placeholder="Your Email" aria-label="Newsletter Email">
+        <button class="btn btn-outline">Subscribe</button>
+      </div>
     </div>
-
-    <p class="copyright">© 2026 Aurex Capital. All rights reserved.</p>
+    <p class="copyright">© 2024 Aurex Capital. All rights reserved. Investing involves risk; not FDIC insured. SEC Regulated.</p>
   </footer>
+
+  <!-- Modal for Get Started -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h2>Sign Up for Aurex Capital</h2>
+      <form id="signup-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button class="btn btn-primary" type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
 
   <!-- JS -->
   <script src="script.js"></script>
+
+  <!-- Analytics Placeholder -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script> -->
 </body>
-  </html>
+            </html>
