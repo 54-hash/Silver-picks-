@@ -13,6 +13,9 @@
   <!-- Icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
+  <!-- Chart.js for Interactive Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
@@ -170,25 +173,25 @@
           <i class="bx bx-line-chart"></i>
           <h3>Stocks & ETFs</h3>
           <p>Gain exposure to global equities with low-cost index funds and individual stocks.</p>
-          <div class="chart-placeholder">Sample Chart: +12% YTD</div>
+          <canvas id="stocks-chart" width="300" height="150" aria-label="Stocks & ETFs performance chart" role="img"></canvas>
         </div>
         <div class="product-card">
           <i class="bx bx-bitcoin"></i>
           <h3>Crypto Assets</h3>
           <p>Invest in Bitcoin, Ethereum, and altcoins with secure wallets and staking options.</p>
-          <div class="chart-placeholder">Sample Chart: +25% YTD</div>
+          <canvas id="crypto-chart" width="300" height="150" aria-label="Crypto assets performance chart" role="img"></canvas>
         </div>
         <div class="product-card">
           <i class="bx bx-transfer-alt"></i>
           <h3>Forex Markets</h3>
           <p>Trade major currency pairs with real-time data and advanced tools.</p>
-          <div class="chart-placeholder">Sample Chart: +8% YTD</div>
+          <canvas id="forex-chart" width="300" height="150" aria-label="Forex markets performance chart" role="img"></canvas>
         </div>
         <div class="product-card">
           <i class="bx bx-briefcase"></i>
           <h3>Managed Portfolios</h3>
           <p>Let experts handle your investments with balanced, risk-adjusted strategies.</p>
-          <div class="chart-placeholder">Sample Chart: +15% YTD</div>
+          <canvas id="portfolios-chart" width="300" height="150" aria-label="Managed portfolios performance chart" role="img"></canvas>
         </div>
       </div>
     </div>
