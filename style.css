@@ -373,3 +373,153 @@ footer a:hover {
     font-size: 2rem;
   }
 }
+
+/* ===============================
+   DASHBOARD LAYOUT
+================================ */
+.dashboard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: rgba(255,255,255,0.05);
+  border-right: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+}
+
+.sidebar .logo {
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background: var(--glass);
+  opacity: 1;
+}
+
+.sidebar .logout {
+  color: #ef4444;
+}
+
+/* MAIN */
+.main {
+  padding: 2rem;
+}
+
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.top-actions {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* STATS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.card p {
+  opacity: 0.8;
+}
+
+.card h2 {
+  margin-top: 0.5rem;
+}
+
+.green {
+  color: var(--secondary);
+}
+
+/* CHART & TRANSACTIONS */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.chart,
+.transactions {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.chart-placeholder {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.transactions ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.transactions li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.transactions span {
+  color: var(--secondary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
